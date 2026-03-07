@@ -2,7 +2,7 @@
 
 Análise exploratória da qualidade da gasolina no Brasil utilizando dados do Programa de Monitoramento da Qualidade dos Combustíveis (PMQC) da ANP e ferramentas de ciência de dados em Python.
 
-O objetivo do projeto é analisar a conformidade das amostras de gasolina coletadas em diferentes estados brasileiros, utilizando técnicas de análise de dados e visualização estatística.
+O objetivo do projeto é realizar uma análise exploratória dos dados públicos do Programa de Monitoramento da Qualidade dos Combustíveis (PMQC), organizando, processando e visualizando informações referentes às amostras de gasolina coletadas em diferentes estados brasileiros.
 
 ---
 
