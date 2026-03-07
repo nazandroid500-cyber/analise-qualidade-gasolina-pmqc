@@ -101,17 +101,26 @@ def boxplot_por_uf(df_ensaio, nome_ensaio):
     print(f"📈 Gráfico {nome_arquivo} gerado")
 
 def mapa_conformidade(resumo):
-    estados = gpd.read_file(os.path.join(GEO_DIR, 'brazil-states.geojson'))  # ← MUDOU
+    estados = gpd.read_file(os.path.join(GEO_DIR, 'brazil-states.geojson'))
     estados["Uf"] = estados["sigla"]
     mapa = estados.merge(resumo, on="Uf")
+
     plt.figure(figsize=(10,8))
-    mapa.plot(column="perc_conforme", cmap="RdYlGn", legend=True)
-    plt.title("Qualidade da gasolina por estado (%)")
+
+    mapa.plot(
+        column="perc_conforme",
+        cmap="RdYlGn",
+        legend=True,
+        vmin=0,   # mínimo da escala = 0%
+        vmax=100  # máximo da escala = 100%
+    )
+
+    plt.title("Conformidade da gasolina por estado (%)")
     plt.axis("off")
     plt.tight_layout()
-    plt.savefig(os.path.join(OUTPUT_DIR, 'mapa_conformidade_brasil.png'), dpi=150)  # ← MUDOU
+    plt.savefig(os.path.join(OUTPUT_DIR, 'mapa_conformidade_brasil.png'), dpi=150)
     plt.close()
-    print("🗺️ Mapa mapa_conformidade_brasil.png gerado")
+
 
 def main():  # ← SEM PARÂMETRO
     caminho_csv = os.path.join(DATA_DIR, 'pmqc_2025_06.csv')  # ← CAMINHO FIXO
